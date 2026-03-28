@@ -1,0 +1,325 @@
+:root {
+  --bg: #0f1117;
+  --bg-panel: #1a1d27;
+  --bg-input: #252837;
+  --border: #2e3148;
+  --text: #e8eaf0;
+  --text-muted: #7b7f96;
+  --primary: #4f8ef7;
+  --danger: #e05454;
+  --success: #4caf7d;
+  --warn: #f5a623;
+  --live: #e03c3c;
+  --recording: #4caf7d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+}
+
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+
+.header {
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.header-left { display: flex; align-items: center; gap: 12px; }
+
+.app-title { font-size: 16px; font-weight: 600; }
+
+.conn-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--bg-input);
+  color: var(--text-muted);
+}
+.conn-badge.connected { background: #1a3a2a; color: var(--success); }
+.conn-badge.connecting { background: #2a2a1a; color: var(--warn); }
+.conn-badge.error { background: #3a1a1a; color: var(--danger); }
+
+.main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dashboard { display: flex; flex-direction: column; gap: 16px; }
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.panel h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+/* Connection Panel */
+.fields {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.fields input {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 13px;
+  width: 160px;
+  outline: none;
+}
+.fields input:focus { border-color: var(--primary); }
+
+.actions { display: flex; gap: 8px; }
+
+.error-msg { margin-top: 8px; color: var(--danger); font-size: 12px; }
+
+/* Buttons */
+.btn {
+  padding: 7px 16px;
+  border-radius: 5px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.85; }
+.btn:active { opacity: 0.7; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-danger  { background: var(--danger);  color: #fff; }
+.btn-secondary { background: var(--bg-input); color: var(--text); border: 1px solid var(--border); }
+
+.btn-row { display: flex; gap: 8px; }
+
+/* Stream Controls */
+.controls-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.status-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--text-muted);
+}
+.dot-live { background: var(--live); box-shadow: 0 0 6px var(--live); animation: pulse 1.5s infinite; }
+.dot-rec  { background: var(--recording); box-shadow: 0 0 6px var(--recording); animation: pulse 1.5s infinite; }
+.dot-warn { background: var(--warn); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.status-text.active { color: var(--live); }
+.status-text.active.paused { color: var(--warn); }
+
+.timecode-inline {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+
+.status-indicator {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+.status-indicator.active { color: var(--live); }
+.status-indicator.active.paused { color: var(--warn); }
+
+.timecode {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.last-record-file {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+/* Scene Switcher */
+.scene-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scene-btn {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.scene-btn:hover { border-color: var(--primary); }
+.scene-btn.active {
+  border-color: var(--primary);
+  background: rgba(79, 142, 247, 0.15);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Stats */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.stat-value.warn { color: var(--warn); }
+
+/* Misc */
+.status-msg {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+}
+.status-msg .error { color: var(--danger); }
+
+/* ── 响应式：移动端 ── */
+@media (max-width: 600px) {
+  .main {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  /* 连接面板：字段单列堆叠 */
+  .fields {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .fields input {
+    width: 100%;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .actions .btn {
+    width: 100%;
+  }
+
+  /* 推流/录制按钮：单列 */
+  .controls-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* 触摸友好按钮最小高度 */
+  .btn {
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .scene-btn {
+    min-height: 44px;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  /* 场景网格：2 列 */
+  .scene-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* 统计：2 列 */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+}
