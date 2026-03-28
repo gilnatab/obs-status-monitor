@@ -2,7 +2,7 @@
 
 本地运行的 OBS Studio 控制面板，通过 **obs-websocket v5** 实时监控和控制 OBS。
 
-**在线体验（需本机运行 OBS）**：`https://gilnatab.github.io/obs-status-monitor/`
+**在线体验（需本机运行 OBS）**：[https://gilnatab.github.io/obs-status-monitor/](https://gilnatab.github.io/obs-status-monitor/)
 
 ## 功能
 
@@ -35,7 +35,7 @@ npm install
 npm run dev
 ```
 
-打开 `http://localhost:5173`，在连接面板填入 OBS 的 host / port / password 后点击连接。
+打开 [http://localhost:5173](http://localhost:5173)，在连接面板填入 OBS 的 host / port / password 后点击连接。
 
 ## 构建
 
