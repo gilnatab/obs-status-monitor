@@ -2,6 +2,8 @@
 
 本地运行的 OBS Studio 控制面板，通过 **obs-websocket v5** 实时监控和控制 OBS。
 
+**在线体验（需本机运行 OBS）**：`https://gilnatab.github.io/obs-status-monitor/`
+
 ## 功能
 
 - 连接状态监控（自动重连，3 秒间隔）
