@@ -44,11 +44,6 @@ const recordSkippedPercent = computed(() => {
   return (streaming.recordSkippedFrames / streaming.recordTotalFrames * 100).toFixed(1)
 })
 
-const recordFileName = computed(() => {
-  const path = streaming.recordPath
-  if (!path) return ''
-  return path.split(/[\\/]/).pop() ?? ''
-})
 </script>
 
 <template>
