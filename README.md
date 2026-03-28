@@ -33,7 +33,7 @@ npm install
 npm run dev
 ```
 
-打开 http://localhost:5173，在连接面板填入 OBS 的 host / port / password 后点击连接。
+打开 `http://localhost:5173`，在连接面板填入 OBS 的 host / port / password 后点击连接。
 
 ## 构建
 
