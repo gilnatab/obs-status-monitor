@@ -1,5 +1,17 @@
 # 变更日志
 
+## [0.3.0] - 2026-03-29
+
+### 新增
+- `vite.config.singlefile.ts`：本地单文件构建配置，使用 `vite-plugin-singlefile` 将所有 JS/CSS 内联进单个 HTML
+- `package.json` 新增 `build:local` 脚本：构建产物可直接双击 `index.html` 运行，无需服务器
+
+### 变更
+- `vite.config.ts`：`base` 改为动态值，`GITHUB_PAGES` 环境变量存在时使用 `/obs-status-monitor/`，否则使用 `./`
+- `.github/workflows/deploy.yml`：CI 构建步骤注入 `GITHUB_PAGES=true` 环境变量
+
+---
+
 ## [0.2.0] - 2026-03-29
 
 ### 新增

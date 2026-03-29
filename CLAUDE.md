@@ -70,9 +70,10 @@ App 启动
 
 ## 开发命令
 ```bash
-npm run dev      # 启动开发服务器 http://localhost:5173
-npm run build    # 构建生产版本
-npm run preview  # 预览构建产物
+npm run dev          # 启动开发服务器 http://localhost:5173
+npm run build        # 构建生产版本（GitHub Pages，base=/obs-status-monitor/）
+npm run build:local  # 构建单文件版本（所有 JS/CSS 内联，可直接双击 index.html 运行）
+npm run preview      # 预览构建产物
 ```
 
 ## OBS WebSocket v5 关键 OpCode

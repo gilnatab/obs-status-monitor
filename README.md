@@ -4,6 +4,8 @@
 
 **在线体验（需本机运行 OBS）**：[https://gilnatab.github.io/obs-status-monitor/](https://gilnatab.github.io/obs-status-monitor/)
 
+![截图](docs/screenshot.png)
+
 ## 功能
 
 - 连接状态监控（自动重连，3 秒间隔）
@@ -40,8 +42,9 @@ npm run dev
 ## 构建
 
 ```bash
-npm run build    # 输出到 dist/
-npm run preview  # 本地预览构建产物
+npm run build        # 构建生产版本（用于 GitHub Pages 部署）
+npm run build:local  # 构建单文件版本：所有 JS/CSS 内联进 index.html，直接双击即可运行
+npm run preview      # 本地预览构建产物
 ```
 
 ## 配置持久化

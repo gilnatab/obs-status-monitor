@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { viteSingleFile } from 'vite-plugin-singlefile'
 
 export default defineConfig({
-  plugins: [vue()],
-  base: process.env.GITHUB_PAGES ? '/obs-status-monitor/' : './',
+  plugins: [vue(), viteSingleFile()],
+  base: './',
   server: {
     port: 5173,
   },
